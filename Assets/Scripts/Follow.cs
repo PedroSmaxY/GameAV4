@@ -3,43 +3,43 @@ using static UnityEngine.GraphicsBuffer;
 
 public class EnemyFollow : MonoBehaviour
 {
-    public Transform hero;  // Referência ao herói
+    public Transform hero;  // Referï¿½ncia ao herï¿½i
     public float speed = 1.5f; // Velocidade do inimigo
-    public float stopDistance = 1.5f; // Distância para parar
-    public float resumeFollowDistance = 1.8f; // Distância para retomar a perseguição
+    public float stopDistance = 1.5f; // Distï¿½ncia para parar
+    public float resumeFollowDistance = 1.8f; // Distï¿½ncia para retomar a perseguiï¿½ï¿½o
     private bool isFollowing = true;
 
     void Update()
     {
-        // Verifica se a referência ao herói foi atribuída
+        // Verifica se a referï¿½ncia ao herï¿½i foi atribuï¿½da
         if (hero != null)
         {
-            // Calcula a distância ao herói
+            // Calcula a distï¿½ncia ao herï¿½i
             float distance = Vector3.Distance(transform.position, hero.position);
 
             if (isFollowing)
             {
-                // Verifica se está perto o suficiente para parar
+                // Verifica se estï¿½ perto o suficiente para parar
                 if (distance > stopDistance)
                 {
                     transform.LookAt(hero.position);
                     transform.Rotate(new Vector3(0, -90, 0), Space.Self); 
 
-                    // Calcula a direção do herói
+                    // Calcula a direï¿½ï¿½o do herï¿½i
                     Vector3 direction = (hero.position - transform.position).normalized;
 
-                    // Move o inimigo na direção do herói
+                    // Move o inimigo na direï¿½ï¿½o do herï¿½i
                     transform.position += direction * speed * Time.deltaTime;
                 }
                 else
                 {
-                    // Está dentro da distância de parada
+                    // Estï¿½ dentro da distï¿½ncia de parada
                     isFollowing = false;
                 }
             }
             else
             {
-                // Verifica se a distância aumentou para retomar a perseguição
+                // Verifica se a distï¿½ncia aumentou para retomar a perseguiï¿½ï¿½o
                 if (distance > resumeFollowDistance)
                 {
                     isFollowing = true;

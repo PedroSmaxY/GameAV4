@@ -9,9 +9,9 @@ public class BossMeleeAttack : MonoBehaviour
     private Animator animator;
     private System.Random random;
     private int count = 0;
-    private Transform player;            // Referência ao jogador
-    private bool playerInRange;          // Indica se o jogador está no alcance
-    private float nextAttackTime = 2f;   // Tempo do próximo ataque
+    private Transform player;            // Referï¿½ncia ao jogador
+    private bool playerInRange;          // Indica se o jogador estï¿½ no alcance
+    private float nextAttackTime = 2f;   // Tempo do prï¿½ximo ataque
 
     void Start()
     {
@@ -22,20 +22,20 @@ public class BossMeleeAttack : MonoBehaviour
 
     void Update()
     {
-        // Verifica se o jogador está no alcance
+        // Verifica se o jogador estï¿½ no alcance
         playerInRange = Vector3.Distance(transform.position, player.position) <= attackRange;
 
-        // Verifica se é hora de atacar
+        // Verifica se ï¿½ hora de atacar
         if (playerInRange && Time.time >= nextAttackTime)
         {
-            // Define o próximo tempo de ataque com base na taxa de ataque
+            // Define o prï¿½ximo tempo de ataque com base na taxa de ataque
             nextAttackTime = Time.time + 25f / attackRate;
             int randomInt = random.Next(11);
             Debug.Log(randomInt);
 
             if (randomInt <= 8)
             {
-                // Chama o método para realizar o ataque
+                // Chama o mï¿½todo para realizar o ataque
                 if (count % 2 == 0)
                 {
                     animator.SetTrigger("LowerCut");
@@ -57,12 +57,12 @@ public class BossMeleeAttack : MonoBehaviour
     void Attack()
     {
         // Aplica dano ao jogador
-        // Aqui você pode adicionar lógica para reduzir a saúde do jogador, por exemplo
+        // Aqui vocï¿½ pode adicionar lï¿½gica para reduzir a saï¿½de do jogador, por exemplo
         // Neste exemplo, estamos apenas imprimindo uma mensagem
         Debug.Log("Boss atacou o jogador!");
 
-        // Exemplo de como você pode aplicar dano ao jogador
-        // Supondo que o jogador tenha um script de saúde (Health) associado
+        // Exemplo de como vocï¿½ pode aplicar dano ao jogador
+        // Supondo que o jogador tenha um script de saï¿½de (Health) associado
         // player.GetComponent<Health>().TakeDamage(damage);
     }
 }
