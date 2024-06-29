@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Enemy
   - 
   - 
   - 
@@ -64,4 +64,7 @@ TagManager:
     locked: 0
   - name: bg1
     uniqueID: 2488114267
+    locked: 0
+  - name: bg0
+    uniqueID: 921336851
     locked: 0
